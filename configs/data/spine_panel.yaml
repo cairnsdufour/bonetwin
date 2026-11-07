@@ -1,0 +1,5 @@
+data:
+  n_train: 4096
+  n_calibration: 4096
+  n_test: 8026
+  root: data/spine

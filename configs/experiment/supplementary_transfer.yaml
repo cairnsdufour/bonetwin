@@ -1,0 +1,7 @@
+# T4 cross-dataset generalisation: external-split sizing for the pooled
+# MrOS+SOF+NLST-Medicare-DXA external cohort (Table III).
+seed: 0
+out_dir: outputs/supplementary_transfer
+
+data:
+  n_test: 8026

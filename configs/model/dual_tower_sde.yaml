@@ -1,0 +1,18 @@
+sensors:
+  merlin_dim: 1024
+  ctfm_dim: 512
+  latent_dim: 1024
+  volume_size: 96
+  use_ctfm: true
+
+propagation:
+  latent_dim: 1024
+  drift_width: 2048
+  drift_depth: 4
+  diffusion_width: 1024
+  diffusion_depth: 3
+  decoder_width: 256
+  decoder_depth: 2
+  n_mc: 128
+  dt_years: 0.25
+  horizon_years: 5.0

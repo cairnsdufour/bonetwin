@@ -1,0 +1,15 @@
+optim:
+  lr: 1.0e-4
+  betas: [0.9, 0.999]
+  weight_decay: 0.0
+  epochs: 100
+  warmup_epochs: 5
+  grad_clip: 1.0
+  precision: fp16
+  world_size: 4
+  early_stop_patience: 10
+  ema_decay: 0.999
+
+misfit:
+  beta_kl_max: 1.0
+  kl_warmup_epochs: 20

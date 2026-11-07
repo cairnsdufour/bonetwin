@@ -1,0 +1,69 @@
+seed: 0
+out_dir: outputs/main
+
+sensors:
+  merlin_dim: 1024
+  ctfm_dim: 512
+  latent_dim: 1024
+  volume_size: 96
+  reference_kvp: 120.0
+  use_ctfm: true
+
+propagation:
+  latent_dim: 1024
+  context_dim: 3
+  drift_width: 2048
+  drift_depth: 4
+  diffusion_width: 1024
+  diffusion_depth: 3
+  decoder_width: 256
+  decoder_depth: 2
+  horizon_years: 5.0
+  dt_years: 0.25
+  n_mc: 128
+  transition_threshold: -2.5
+
+alerts:
+  tau_low: 0.15
+  tau_high: 0.50
+  alphas: [0.01, 0.05, 0.10]
+  min_stratum: 500
+  label_smoothing: 0.01
+
+swarms:
+  n_components: 2
+  relative_risk_reduction: 0.35
+  bic_max_components: 5
+
+misfit:
+  beta_kl_max: 1.0
+  kl_warmup_epochs: 20
+  free_bits: 0.0
+
+data:
+  n_train: 4096
+  n_calibration: 4096
+  n_test: 8026
+  seed: 0
+  root: data/spine
+
+optim:
+  lr: 1.0e-4
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  epochs: 100
+  batch_size: 64
+  grad_accum: 1
+  world_size: 4
+  warmup_epochs: 5
+  grad_clip: 1.0
+  precision: fp16
+  early_stop_patience: 10
+  ema_decay: 0.999
+  max_steps: 0
+
+report:
+  n_seeds: 20
+  n_bootstrap: 2000
+  delta: 0.05
+  null_threshold: 0.015

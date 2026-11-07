@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bonetwin"
+version = "1.0.0"
+description = "Patient-specific bone digital twins: FM encoding, latent-SDE T-score trajectories, split-conformal triage"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "torch==2.4.1",
+    "numpy==1.26.4",
+    "scipy==1.13.1",
+    "scikit-learn==1.5.1",
+    "omegaconf==2.3.0",
+    "typer==0.12.5",
+    "onnx==1.16.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.2",
+    "hypothesis==6.112.0",
+    "ruff==0.6.4",
+    "black==24.8.0",
+    "isort==5.13.2",
+    "mypy==1.11.2",
+    "pre-commit==3.8.0",
+]
+
+[project.scripts]
+bonetwin-train = "bonetwin.operations.train:main"
+bonetwin-eval = "bonetwin.operations.evaluate:main"
+bonetwin-infer = "bonetwin.operations.infer:main"
+bonetwin-export = "bonetwin.operations.export_onnx:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 96
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 96
+
+[tool.ruff]
+line-length = 96
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+files = ["src/bonetwin"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

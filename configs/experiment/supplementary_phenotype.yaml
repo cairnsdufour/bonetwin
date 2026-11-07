@@ -1,0 +1,9 @@
+# T7 trajectory phenotype characterisation (C4): BIC sweep up to K=5 on the
+# predicted 5-year increment with a 35% relative-risk-reduction NNT analysis.
+seed: 0
+out_dir: outputs/supplementary_phenotype
+
+swarms:
+  n_components: 2
+  bic_max_components: 5
+  relative_risk_reduction: 0.35

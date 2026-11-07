@@ -1,0 +1,7 @@
+# T2 I-2 removal: collapse the latent SDE to a single deterministic path
+# (single Monte-Carlo sample removes the trajectory-level uncertainty signal).
+seed: 0
+out_dir: outputs/ablation_no_sde_noise
+
+propagation:
+  n_mc: 1

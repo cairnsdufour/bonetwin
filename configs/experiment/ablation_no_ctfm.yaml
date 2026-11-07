@@ -1,0 +1,6 @@
+# T2 I-1 removal: drop the CT-FM secondary tower from the encoder.
+seed: 0
+out_dir: outputs/ablation_no_ctfm
+
+sensors:
+  use_ctfm: false

@@ -1,0 +1,8 @@
+# T2 I-3 removal: widen the triage thresholds so the conformal funnel
+# degenerates to a single bucket (no low/uncertain/high stratification).
+seed: 0
+out_dir: outputs/ablation_no_conformal
+
+alerts:
+  tau_low: 0.0
+  tau_high: 1.0
